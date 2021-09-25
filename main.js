@@ -1,23 +1,3 @@
-console.log("Hello world");
-/*
-// Dependencies
-const imageToAscii = require("image-to-ascii");
- 
-// Passing options
-imageToAscii("https://octodex.github.com/images/privateinvestocat.jpg", {
-    colored: false,
-    concat: false,
-    size: {
-        height: 80,
-        width:  80
-    }
-}, (err, converted) => {
-    const stringArray = converted.map(x => x.join(""));
-    console.log(typeof converted);
-    console.log(stringArray.length);
-    console.log(stringArray)
-});
-*/
 const imageToAscii = require("image-to-ascii");
 const express = require('express');
 const { json } = require("express");
@@ -35,16 +15,19 @@ app.post("/imagepls", (req, res, next) => {
     if(req.body.options === undefined){
         imageToAscii(url, (err, converted) => {
             console.log("=====> FINISHED CONVERTING");
+            const stringArray = converted.map(x => x.join(""));
             res.status(200).json({
-                data: converted
+                strArray: stringArray
             });
         });
     }
     else{
-        imageToAscii(url, eq.body.options, (err, converted) => {
-            console.log("=====> FINISHED CONVERTING");
+        imageToAscii(url, req.body.options, (err, converted) => {
+            const stringArray = converted.map(x => x.join(""));
+            console.log("=====> FINISHED CONVERTING with options ", stringArray.length);
+            console.log(stringArray)
             res.status(200).json({
-                data: converted
+                strArray: stringArray
             });
         });
     }
