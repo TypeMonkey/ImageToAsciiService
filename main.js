@@ -28,7 +28,7 @@ const PORT = 80;
 
 //Sets the route for "ping"
 app.get("/ping", (req, res, next) => {
-    res.status(200).json({success:true});
+    res.status(200).json({success: true});
 });
 
 
