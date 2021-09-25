@@ -28,13 +28,13 @@ const PORT = 80;
 
 //Sets the route for "ping"
 app.get("/ping", (req, res, next) => {
-    res.status(200).json({success:true});
+    res.status(200).json({success: true});
 });
 
 
 //Starts the server on the provided port
 const server = app.listen(PORT, () => {
-    console.log("Running server on port: "+PORT);
+    console.log("Running server on p ort: "+PORT);
 });
 
 //We export "server" for testing purposes
