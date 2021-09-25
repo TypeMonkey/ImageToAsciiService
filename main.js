@@ -34,7 +34,7 @@ app.get("/ping", (req, res, next) => {
 
 //Starts the server on the provided port
 const server = app.listen(PORT, () => {
-    console.log("Running server on p ort: "+PORT);
+    console.log("Running server on port: "+PORT);
 });
 
 //We export "server" for testing purposes
