@@ -21,9 +21,13 @@ imageToAscii("https://octodex.github.com/images/privateinvestocat.jpg", {
 const imageToAscii = require("image-to-ascii");
 const express = require('express');
 const { json } = require("express");
-const app = express();
 
+const app = express();
 const PORT = 9000;
+
+// Parse JSON bodies for this app. Make sure you put
+// `app.use(express.json())` **before** your route handlers!
+app.use(express.json());
 
 app.post("/imagepls", (req, res, next) => {
     const url = req.body.url;
